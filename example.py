@@ -14,7 +14,7 @@ creds_folder = Path(config['creds_folder'])
 creds_file_name = config['creds_file_name']
 creds_file = creds_folder / creds_file_name
 
-views_directory = 'Views'
+views_directory = 'views'
 
 
 def run():
