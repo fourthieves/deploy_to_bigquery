@@ -1,11 +1,9 @@
-"""
-Does not support python 2
-"""
+#!/usr/bin/env python3
 
 from google.cloud import bigquery
 from google.cloud.bigquery import Dataset
 from google.cloud.exceptions import Conflict
-from google.cloud.exceptions import  Forbidden
+from google.cloud.exceptions import Forbidden
 from pathlib import Path
 import logging
 
@@ -20,12 +18,12 @@ class BigQueryDeploy:
     def create_view_from_sql_file(self, destination_data_set, file_path, substitutions=None,
                                   log_error_and_continue=False):
         """
-        :param: substitutions: Optional, If used, this parameter should be in the format of a dictionary for
+        :param substitutions: Optional, If used, this parameter should be in the format of a dictionary for
         substituting values into SQL templates.  The value will be substituted in where the key is represented in the
         SQL template. I.e. `{key} will be replaced with value`
-        :param: destination_data_set: the data set that the view should be made in
-        :param: file_path: the path of the SQL file containing the data for the view
-        :param: log_error_and_continue: Boolean - This defaults to False meaning the method will throw an exception if
+        :param destination_data_set: the data set that the view should be made in
+        :param file_path: the path of the SQL file containing the data for the view
+        :param log_error_and_continue: Boolean - This defaults to False meaning the method will throw an exception if
         it encounters an error.  This can be overridden to True and it will instead log the error and continue with the
         rest of the deployment
         :return: 0 indicates success
@@ -107,6 +105,9 @@ class BigQueryDeploy:
 
         :param views_directory: str or path - The directory to be iterated through
         :param substitutions: optional - a dictionary of substitutions for SQL template
+        :param log_error_and_continue: Boolean - This defaults to False meaning the method will throw an exception if
+        it encounters an error.  This can be overridden to True and it will instead log the error and continue with the
+        rest of the deployment
         :return: 0 indicates success
         """
 
